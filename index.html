@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <!--[if IE 6]>
+        <script type="text/javascript">
+            window.location="http://192.168.102.42/www/publish/ViewNews.view.x?newsId=84858";
+        </script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="style/css/style.css" />
+    <script type="text/javascript" src="style/js/lib/json2.js"></script>
+    <script type="text/javascript" src="style/js/lib/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="style/js/lib/mustache.js"></script>
+    <script type="text/javascript" src="style/js/lib/underscore-min.js"></script>
+    <script type="text/javascript" src="style/js/lib/backbone-min.js"></script>
+    <title>demo - 42naxin</title>
+</head>
+<body>
+    <div id="cover">
+        <img id="enter" title="进入42纳新" src="images/cover.gif" />
+    </div>
+    <ul class="nav">
+        <li><a href="http://192.168.102.42/index" target="_blank">42首页</a></li>
+        <li><a href="http://192.168.102.41/blog/" target="_blank">逐迹</a></li>
+        <li><a href="http://192.168.102.42/www/publish/ListNews.index.x" target="_blank">新闻</a></li>
+        <li><a href="http://192.168.102.42/download" target="_blank">下载</a></li>
+        <li><a href="http://192.168.102.42/dengdeng" target="_blank">瞪瞪</a></li>
+    </ul>
+    <div class="wrap">
+        <div class="dir-wrap">
+            <h1 class="logo">42网络技术小组欢迎您的加入</h1>
+            <div id="depart-dir">
+                <ul>
+
+                </ul>
+            </div>
+        </div>
+
+        <div id="depart-wrap">
+            <div id="depart-contain">
+                <script type="text/mustache" class="depart-temp">
+                    <h3 id="depart{{id}}" class="depart-title"><img src="{{titleIMG}}" alt="{{title}}" /><span>“{{poster}}”</span></h3>
+                    <div class="depart-part">
+                        <div id="depart-intro">
+                            <p><b>{{shortTitle}}</b>{{intro}}</p>
+                            <div id="depart-article" class="hidden">
+                                <h5>工作职责：</h5>
+                                <p>{{duty}}</p>
+                                {{#article}}
+                                <h5>基本技能和素质要求：</h5>
+                                <ol>
+                                {{#basic}}
+                                    <li>{{.}}</li>
+                                {{/basic}}
+                                </ol>
+
+                                <h5>如果你满足了上述要求就说明你已经很优秀了，但是如果还具有下面的任何一项技能会更好：</h5>
+                                <ol>
+                                {{#advante}}
+                                    <li>{{.}}</li>
+                                {{/advante}}
+                                </ol>
+                                {{/article}}
+                            </div>
+                        </div>
+                        <div class="depart-buttons">
+                            <a id="join" href="javascript:void(0);">我要加入</a>
+                            <a id="switch" href="javascript:void(0);">展开查看详情</a>
+                        </div>
+                    </div>
+                </script>
+            </div>
+
+            <div id="behind" class="hidden"></div>
+            <div id="depart-form" class="hidden">
+                <div class="form-bg-top-left"><div class="form-bg-top-right"></div></div> <!-- bg -->
+
+                <form action="" method="post" class="form-bg-left">
+                    <dl class="form-left">
+                        <dt>姓名*</dt>
+                          <dd><input id="uname" name="uname" type="text" /></dd>
+                        <dt>性别*</dt>
+                          <dd><label><input type="radio" id="sex" name="sex" value="男" checked />男</label><label><input type="radio" name="sex" value="女" />女</label></dd>
+                        <dt>年级*</dt>
+                          <dd><label><input type="radio" id="grade" name="grade" value="12级" checked />12级</label><label><input type="radio" name="grade" value="11级" />11级</label></dd>
+                        <dt>应聘部门*</dt>
+                          <dd><input type="text" id="depart" name="depart" readonly value="未选择部门" /></dd>
+                        <dt>行动电话*</dt>
+                          <dd><input type="text" id="phone" name="phone" /></dd>
+                        <dt>电子邮件*</dt>
+                          <dd><input type="text" id="email" name="email" /></dd>
+                        <dt>QQ号码</dt>
+                          <dd><input type="text" id="qq" name="qq" /></dd>
+                        <dt>42昵称</dt>
+                          <dd><input type="text" id="nickname" name="nickname" /></dd>
+                        <dt class="mu-in">所报其他<br />组织或社团</dt>
+                          <dd><input type="text" id="otherclub" name="otherclub" /></dd>
+                    </dl>
+                    <dl class="form-right">
+                        <dt>自我评价（100字以内）</dt>
+                          <dd><textarea id="intro" name="intro"></textarea></dd>
+                        <dt>对所报部门的认识（100字以内）</dt>
+                          <dd><textarea id="realize" name="realize"></textarea></dd>
+                    </dl>
+                    <div class="form-footer">
+                        <p>请仔细核对，如准确无误，点击下面【提交】按钮</p>
+                        <input type="submit" class="form-button form-submit" value="提 交" /><input type="button" id="form-cancel" class="form-button" value="返 回" />
+                    </div>
+                    <div class="form-bg-right"></div> <!-- bg -->
+                </form>
+                
+                <div class="form-bg-bottom-left"><div class="form-bg-bottom-right"></div></div> <!-- bg -->
+            </div> <!-- depart-form -->
+        </div> <!-- depart-wrap -->
+    </div> <!-- wrap -->
+    <div class="footer">因为42，所以精彩 - Copyright 2012 by 42Team</div>
+
+    <script type="text/javascript" src="style/js/fun.gogu.js"></script>
+</body>
+</html>
